@@ -1,13 +1,12 @@
+import {useState} from "react";
+import {CheckFile} from "../helpers/CheckFile";
+
 const GetFile = () => {
+    const [file, setFile] = useState(undefined); // Используйте const и деструктурирование
+
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
-
-        if (selectedFile) {
-            const fileNameParts = selectedFile.name.split('.');
-            const fileFormat = fileNameParts[fileNameParts.length - 1].toLowerCase();
-            if (fileFormat === 'csv') console.log('this is SCV')
-            if (fileFormat === 'xml') console.log('this is XML')
-        }
+        if (selectedFile) setFile(selectedFile)
     };
 
 
@@ -18,8 +17,13 @@ const GetFile = () => {
                 type="file"
                 id="fileInput"
                 accept=".xml, .csv"
-                onChange={handleFileChange}
+                onChange={handleFileChange} // Обновленное имя функции
             />
+            {
+                file ?
+                    <CheckFile file={file} />
+                    :
+                    <div>Пусто</div>}
         </div>
     );
 };
