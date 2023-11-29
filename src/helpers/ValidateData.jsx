@@ -1,4 +1,2 @@
-export const ValidateData = (props) => {
-    const data = props.data
-    console.log(data)
+export const ValidateData = ( {data} ) => {
 }

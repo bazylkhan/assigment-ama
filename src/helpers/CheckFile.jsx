@@ -1,8 +1,7 @@
 import {CsvToArray} from "./CsvToArray";
 import {XmlToArray} from "./XmlToArray";
 
-export const CheckFile = (props ) => {
-    const file = props.file
+export const CheckFile = ( {file} ) => {
 
     const fileNameParts = file.name.split('.');
 

@@ -1,8 +1,7 @@
 import Papa from 'papaparse'
 import {useEffect, useState} from "react";
 import {ValidateData} from "./ValidateData";
-export const CsvToArray = (props) => {
-    const file = props.file
+export const CsvToArray = ( {file} ) => {
     const [data, setData] = useState([])
 
     useEffect(() => {
